@@ -13,24 +13,17 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
 
 
     React.useEffect(() => {
-        api.getUserInfo()
-            .then((data) => {
-                setUserName(data.name);
-                setUserDescription(data.about);
-                setUserAvatar(data.avatar);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-        api.getInitialCards()
-            .then((data) => {
-                setCards(data);
+        Promise.all([api.getUserInfo(), api.getInitialCards()])
+            .then(([userInfo, initialCards]) => {
+                setUserName(userInfo.name);
+                setUserDescription(userInfo.about);
+                setUserAvatar(userInfo.avatar);
+                setCards(initialCards);
             })
             .catch((error) => {
                 console.log(error);
             });
     }, []);
-
 
     return (<div>
         <main>
