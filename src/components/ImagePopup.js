@@ -9,7 +9,6 @@ function ImagePopup({ card, onClose }) {
                 <p className="popup-image__caption"> {card ? card.name : ''}</p>
             </div>
         </div>
-
     )
 }
 export default ImagePopup;

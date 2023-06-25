@@ -85,7 +85,16 @@ export class Api {
     })
       .then(res => this._handleResponse(res))
   }
-} //закрытие класса
+  // новый изменение статуса
+  changeLikeCardStatus(id, isLiked) {
+    if (isLiked) {
+      return api.addLikeCard(id)
+    }
+    return api.deleteLikeCard(id)
+  }
+
+
+}  //закрытие класса
 
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
