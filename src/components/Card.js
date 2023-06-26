@@ -24,7 +24,7 @@ function Card({ card, onCardClick, onCardLike, onDeletePopup }) {
         <li className="element" key={card._id}>
             {isOwn && <button className='element__remove' onClick={handleDeleteClick} />}
             <img
-                className="element__img"
+                className="element__img" alt={card.link ? "" : card.name}
                 style={{
                     backgroundImage: `url(${card.link})`, backgroundSize: 'cover',
                     backgroundPosition: 'center'

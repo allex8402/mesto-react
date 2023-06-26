@@ -6,6 +6,7 @@
    margin: 0 auto 51px;
    align-items: center;
    padding: 0;
+   justify-content: flex-start;
  }
 
  @media screen and (min-width:618px) and (max-width:929px) {
